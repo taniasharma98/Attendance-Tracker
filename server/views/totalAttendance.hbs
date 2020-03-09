@@ -1,0 +1,170 @@
+<body onload="setDropdown({{currentDay}})">
+
+    <nav id="sidebar" class="bg-dark">
+        <ul class="list-unstyled components">
+            <img class="img-fluid px-2 mt-2 mb-2 " src="images/uwlogo.png">
+
+            <li class="font-weight-bold">
+                <a class="navbar-brand w-100 m-0" href="scottclasses.html">
+                    <img src="images/home-outline.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a class="navbar-brand w-100 m-0" href="takeattendance{{classname}}.html">
+                    <img src="images/edit-2-outline.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                    Take Attendance
+                </a>
+            </li>
+            <li>
+                <a class="navbar-brand w-100 m-0" href="viewAttendance.html">
+                    <img src="images/file-text-outline.svg" width="30" height="30" class="d-inline-block align-top"
+                        alt="">
+                    Daily Attendance
+                </a>
+            </li>
+               <li>
+                <a class="navbar-brand w-100 m-0" href="totalAttendance.html">
+                    <img src="images/calendar.svg" width="30" height="30" class="d-inline-block align-top"
+                        alt="">
+                     Semester's Attendance
+                </a>
+            </li>
+            <li>
+                <a class="navbar-brand w-100 m-0" href="add-edit.html">
+                    <img src="images/person-add-outline.svg" width="30" height="30" class="d-inline-block align-top"
+                        alt="">
+                    Edit Classlist
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+    <div class="container-fluid min-vh-100">
+        <div class="row">
+            <div class="col-12">
+                <div class="col-lg-12 my-4 mb-5">
+                    <h1 class="font-weight-bold">Total Attendance for Semester</h1>
+                    <h5 class="text-secondary">Displaying each student's total attendance record for the semester.</h5>
+
+
+                </div>
+            </div>
+
+            <div class="col-12 px-4">
+                <div class="table-responsive">
+                    <table class="table table-striped  my-3">
+                        <h2 class="font-weight-bolder">Students Present</h2>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Student Name</th>
+                                <th scope="col">Class 1</th>
+                                <th scope="col">Class 2</th>
+                                <th scope="col">Class 3</th>
+                                <th scope="col">Class 4</th>
+                                <th scope="col">Class 5</th>
+                                <th scope="col">Class 6</th>
+                                <th scope="col">Class 7</th>
+                                <th scope="col">Class 8</th>
+                                <th scope="col">Class 9</th>
+                                <th scope="col">Class 10</th>
+                                <th scope="col">Class 11</th>
+                                <th scope="col">Class 12</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each gbda404Data}}
+                            <tr>
+
+                                <td>{{this.name}}</td>
+
+                                {{#if attendanceRecord.[0]}}
+                                <td class="text-success">Present</td>
+                                {{else}}
+                                <td class="text-danger">Absent</td>
+                                {{/if}}
+
+                                {{#if attendanceRecord.[1]}}
+                                <td class="text-success">Present</td>
+                                {{else}}
+                                <td class="text-danger">Absent</td>
+                                {{/if}}
+
+                                {{#if attendanceRecord.[2]}}
+                                <td class="text-success">Present</td>
+                                {{else}}
+                                <td class="text-danger">Absent</td>
+                                {{/if}}
+
+                                {{#if attendanceRecord.[3]}}
+                                <td class="text-success">Present</td>
+                                {{else}}
+                                <td class="text-danger">Absent</td>
+                                {{/if}}
+
+                                {{#if attendanceRecord.[4]}}
+                                <td class="text-success">Present</td>
+                                {{else}}
+                                <td class="text-danger">Absent</td>
+                                {{/if}}
+
+                                {{#if attendanceRecord.[5]}}
+                                <td class="text-success">Present</td>
+                                {{else}}
+                                <td class="text-danger">Absent</td>
+                                {{/if}}
+
+                                {{#if attendanceRecord.[6]}}
+                                <td class="text-success">Present</td>
+                                {{else}}
+                                <td class="text-danger">Absent</td>
+                                {{/if}}
+
+                                {{#if attendanceRecord.[7]}}
+                                <td class="text-success">Present</td>
+                                {{else}}
+                                <td class="text-danger">Absent</td>
+                                {{/if}}
+
+                                {{#if attendanceRecord.[8]}}
+                                <td class="text-success">Present</td>
+                                {{else}}
+                                <td class="text-danger">Absent</td>
+                                {{/if}}
+
+                                {{#if attendanceRecord.[9]}}
+                                <td class="text-success">Present</td>
+                                {{else}}
+                                <td class="text-danger">Absent</td>
+                                {{/if}}
+
+                                {{#if attendanceRecord.[10]}}
+                                <td class="text-success">Present</td>
+                                {{else}}
+                                <td class="text-danger">Absent</td>
+                                {{/if}}
+
+                                {{#if attendanceRecord.[11]}}
+                                <td class="text-success font-weight-bold">Present</td>
+                                {{else}}
+                                <td class="text-danger">Absent</td>
+                                {{/if}}
+
+                             
+
+
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+            <script src="formfix.js"></script>

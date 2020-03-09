@@ -1,0 +1,65 @@
+body{
+  font-family: 'Lato';
+}
+
+
+.subTitle{
+  font-size:25px;
+  font-weight:300;
+  text-align:center;
+}
+
+.card {
+  padding-left:auto;
+  padding-right:auto;
+  min-height:300px;
+  margin-top:15px;
+    border-radius:40px;
+ box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+ -webkit-transition: .25s box-shadow;
+ transition: .25s box-shadow;
+}
+.card:focus, .card:hover {
+ box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.col-xs-12{
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+.row{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.card-title{
+  margin-top:15px;
+}
+
+.card01{
+   background:#FAF4A6;
+}
+
+.card02{
+  background: #FBD756;
+}
+
+.card01:hover{
+  background: rgba(250, 244, 166, 0.63);
+}
+
+.card02:hover{
+  background: rgba(251, 215, 86, 0.8);
+}
+
+.fakePic{
+  height:100px;
+  width:100px;
+  background-color:white;
+  border-radius:50%;
+  margin:auto;
+  margin-top: 20px;
+}
+
+

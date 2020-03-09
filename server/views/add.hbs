@@ -1,0 +1,188 @@
+<div class="wrapper">
+         	<nav id="sidebar" class="bg-dark">
+		<ul class="list-unstyled components">
+					<img  class="img-fluid px-2 mt-2 mb-2 " src="images/uwlogo.png">
+
+			<li class="font-weight-bold">
+				<a class="navbar-brand w-100 m-0" href="scottclasses.html">
+					<img src="images/home-outline.svg" width="30" height="30" class="d-inline-block align-top"
+						alt="">
+					Home
+				</a>
+			</li>
+			<li>
+				<a class="navbar-brand w-100 m-0" href="takeattendance{{classname}}.html">
+					<img src="images/edit-2-outline.svg" width="30" height="30" class="d-inline-block align-top"
+						alt="">
+					Take Attendance
+				</a>
+			</li>
+			</li>
+			      <li>
+                <a class="navbar-brand w-100 m-0" href="viewAttendance.html">
+                    <img src="images/file-text-outline.svg" width="30" height="30" class="d-inline-block align-top"
+                        alt="">
+                    Daily Attendance
+                </a>
+            </li>
+               <li>
+                <a class="navbar-brand w-100 m-0" href="totalAttendance.html">
+                    <img src="images/calendar.svg" width="30" height="30" class="d-inline-block align-top"
+                        alt="">
+                     Semester's Attendance
+                </a>
+            </li>
+			<li>
+				<a class="navbar-brand w-100 m-0" href="add-edit.html">
+					<img src="images/person-add-outline.svg" width="30" height="30" class="d-inline-block align-top"
+						alt="">
+					Edit Classlist
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+
+
+<div class="container-fluid min-vh-100">
+
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Add a Student to the Class</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form method="POST" action="/addStudent">
+						<div class="form-group">
+							<label for="name" class="col-form-label">Student Name:</label>
+							<input type="text" class="form-control" id="name" name="name">
+						</div>
+						<div class="form-group">
+							<label for="studentNumber" class="col-form-label">Student #:</label>
+							<input type="number" class="form-control" id="studentNumber" name="studentNumber">
+						</div>
+						<div class="form-group">
+							<label for="gradYear" class="col-form-label">Graduation Year:</label>
+							<input type="number" class="form-control" id="gradYear" name="gradYear">
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					<button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Add Student</button>
+				</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<h5 class="modal-title mx-auto " id="exampleModalLongTitle">Confirm Removal of:</h5>
+					<button type="button" class="close mx-1" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+
+					<h5 class="card-title" id="student-name"></h5>
+					<p class="card-text" id="student-id"></p>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-warning">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="row">
+
+		<div class="col-lg-12 mt-4">
+
+			<h1 class="font-weight-bold">Edit Classlist</h1>
+			<h5 class="text-secondary">Use this page to add or remove students from the classlist.</h5>
+		</div>
+		<div class="col-12 d-flex flex-wrap">
+			<div class="col-auto p-0">
+				<a href="" class="btn btn-outline-dark  ">Import CSV</a>
+			</div>
+			<div class="col-auto">
+				<a class="btn btn-warning   " data-toggle="modal" data-target="#exampleModal">Add
+					Student</a>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="table-responsive align-content-center">
+
+		<table class="table table-striped ">
+			<thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Student #</th>
+					<th scope="col">Graduation Year</th>
+					<th scope="col">Remove</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				{{#each gbda404Data}}
+
+				<tr>
+
+					
+						<td>{{this.name}}</td>
+						<td>{{this.studentNumber}}</td>
+						<td>{{this.gradYear}}</td>
+											<form method="POST" action="/removeStudent/{{this.name}}">
+
+						<td> <button class="btn btn-danger remove-button"> Remove </button></td>
+					</form>
+
+
+				</tr>
+
+
+
+
+				{{/each}}
+
+			</tbody>
+		</table>
+
+
+	</div>
+</div>
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	crossorigin="anonymous"></script>

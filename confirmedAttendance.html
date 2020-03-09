@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./server/public/scottstyle.css" />
+
+    <title>Class Attendance</title>
+  </head>
+  <div class="wrapper">
+    <nav id="sidebar">
+      <ul class="list-unstyled components">
+        <li>
+          <a href="takeattendance.html">Take Attendance</a>
+        </li>
+        <li>
+          <a href="add-edit.html"><b>Add/Edit Students</b></a>
+        </li>
+      </ul>
+    </nav>
+
+    <body>
+      <div class="container-fluid min-vh-100">
+        <div class="row">
+          <div class="col-12">
+            <div class="col-lg-12 my-4 mb-5">
+              <h1 class="font-weight-bold">Class Attendance</h1>
+              <h5 class="text-secondary">Select a class date to view which student's were present.</h5>
+
+             <div class="col-6 px-0">
+              <form class="form-inline" method="POST" action="/selectClass">
+                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                  <option selected value="1">Class 1 - January 6, 2019</option>
+                  <option value="2">Class 2 - March 13, 2019</option>
+                  <option value="3">Class 3 - March 20, 2019</option>
+                  <option value="4">Class 4 - March 27, 2019</option>
+                  <option value="5">Class 5 - March 3, 2019</option>
+                  <option value="6">Class 6 - March 10, 2019</option>
+                  <option value="7">Class 7 - March 17, 2019</option>
+                  <option value="8">Class 8 - March 24, 2019</option>
+                  <option value="9">Class 9 - March 2, 2019</option>
+                  <option value="10">Class 10 - March 9, 2019</option>
+                  <option value="11">Class 11 - March 16, 2019</option>
+                  <option value="12">Class 12 - March 23, 2019</option>
+
+                </select>     
+                <button type="submit" class="btn btn-primary my-1">View Class Attendance</button>
+              </form>
+             </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="table-responsive">
+              <table class="table table-striped  my-3">
+                <h2 class="font-weight-bolder">Student's Present</h2>
+
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Student #</th>
+                    <th scope="col">Graduation Year</th>
+                  </tr>
+                </thead>
+                <tbody>
+       
+                  <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.studentNumber}}</td>
+                    <td>{{this.gradYear}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="table-responsive">
+              <table class="table table-striped my-3">
+                <h2 class="font-weight-bolder">Student's Absent</h2>
+
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Student #</th>
+                    <th scope="col">Graduation Year</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.studentNumber}}</td>
+                    <td>{{this.gradYear}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"
+      ></script>
+      <script src="formcontrol.js"></script>
+    </body>
+  </div>
+</html>

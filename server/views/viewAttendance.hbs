@@ -1,0 +1,132 @@
+<body onload="setDropdown({{currentDay}})">
+  
+      <nav id="sidebar" class="bg-dark">
+        <ul class="list-unstyled components">
+                    <img  class="img-fluid px-2 mt-2 mb-2 " src="images/uwlogo.png">
+
+            <li class="font-weight-bold">
+                <a class="navbar-brand w-100 m-0" href="scottclasses.html">
+                    <img src="images/home-outline.svg" width="30" height="30" class="d-inline-block align-top"
+                        alt="">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a class="navbar-brand w-100 m-0" href="takeattendance{{classname}}.html">
+                    <img src="images/edit-2-outline.svg" width="30" height="30" class="d-inline-block align-top"
+                        alt="">
+                    Take Attendance
+                </a>
+            </li>
+                  <li>
+                <a class="navbar-brand w-100 m-0" href="viewAttendance.html">
+                    <img src="images/file-text-outline.svg" width="30" height="30" class="d-inline-block align-top"
+                        alt="">
+                    Daily Attendance
+                </a>
+            </li>
+               <li>
+                <a class="navbar-brand w-100 m-0" href="totalAttendance.html">
+                    <img src="images/calendar.svg" width="30" height="30" class="d-inline-block align-top"
+                        alt="">
+                     Semester's Attendance
+                </a>
+            </li>
+            <li>
+                <a class="navbar-brand w-100 m-0" href="add-edit.html">
+                    <img src="images/person-add-outline.svg" width="30" height="30" class="d-inline-block align-top"
+                        alt="">
+                    Edit Classlist
+                </a>
+            </li>
+        </ul>
+    </nav>
+  
+  
+  
+    <div class="container-fluid min-vh-100">
+        <div class="row">
+            <div class="col-12">
+                <div class="col-lg-12 my-4 mb-5">
+                    <h1 class="font-weight-bold">Attendance for Class {{currentDay}}</h1>
+                    <h5 class="text-secondary">Select a class date to view which student's were present.</h5>
+
+                    <div class="col-6 px-0 form-inline">
+                        <form id="attendance-form" method="POST" action="/selectClass">
+				
+					    <select class="form-control mr-2 " name="exampleFormControlSelect1" id="day-select">
+                        <option  value="1">Class 1 - January 6, 2019</option>
+                                <option value="2">Class 2 - March 13, 2019</option>
+                                <option value="3">Class 3 - March 20, 2019</option>
+                                <option value="4">Class 4 - March 27, 2019</option>
+                                <option value="5">Class 5 - March 3, 2019</option>
+                                <option value="6">Class 6 - March 10, 2019</option>
+                                <option value="7">Class 7 - March 17, 2019</option>
+                                <option value="8">Class 8 - March 24, 2019</option>
+                                <option value="9">Class 9 - March 2, 2019</option>
+                                <option value="10">Class 10 - March 9, 2019</option>
+                                <option value="11">Class 11 - March 16, 2019</option>
+                                <option value="12">Class 12 - March 23, 2019</option>
+                    </select>
+				
+                            <button type="submit" onclick="formFix()" class="btn btn-warning my-1 ">View Class Attendance</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="table-responsive">
+                    <table class="table table-striped  my-3">
+                        <h2 class="font-weight-bolder">Students Present</h2>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Student #</th>
+                                <th scope="col">Days Present</th>
+                                <th scope="col">Days Absent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each present}}
+                            <tr>
+                                <td>{{this.name}}</td>
+                                <td>{{this.studentNumber}}</td>
+                                <td class="text-success">{{this.present}}</td>
+                                <td class="text-danger">{{this.absent}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="table-responsive">
+                    <table class="table table-striped my-3">
+                        <h2 class="font-weight-bolder">Students Absent</h2>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Student #</th>
+                                <th scope="col">Days Present</th>
+                                <th scope="col">Days Absent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each absent}}
+                            <tr>
+                                <td>{{this.name}}</td>
+                                <td>{{this.studentNumber}}</td>
+                                <td class="text-success">{{this.present}}</td>
+                                <td class="text-danger">{{this.absent}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+           
+            <script src="formfix.js"></script>

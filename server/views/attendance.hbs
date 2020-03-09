@@ -1,0 +1,144 @@
+	<body onload="setDropdown({{currentDay}})">
+
+<div class="wrapper">
+	<nav id="sidebar" class="bg-dark">
+		<ul class="list-unstyled components">
+					<img  class="img-fluid px-2 mt-2 mb-2 " src="images/uwlogo.png">
+
+			<li class="font-weight-bold">
+				<a class="navbar-brand w-100 m-0" href="scottclasses.html">
+					<img src="images/home-outline.svg" width="30" height="30" class="d-inline-block align-top"
+						alt="">
+					Home
+				</a>
+			</li>
+			<li>
+				<a class="navbar-brand w-100 m-0" href="takeattendance{{currentClass}}.html">
+					<img src="images/edit-2-outline.svg" width="30" height="30" class="d-inline-block align-top"
+						alt="">
+					Take Attendance
+				</a>
+			</li>
+			      <li>
+                <a class="navbar-brand w-100 m-0" href="viewAttendance.html">
+                    <img src="images/file-text-outline.svg" width="30" height="30" class="d-inline-block align-top"
+                        alt="">
+                    Daily Attendance
+                </a>
+            </li>
+               <li>
+                <a class="navbar-brand w-100 m-0" href="totalAttendance.html">
+                    <img src="images/calendar.svg" width="30" height="30" class="d-inline-block align-top"
+                        alt="">
+                     Semester's Attendance
+                </a>
+            </li>
+			<li>
+				<a class="navbar-brand w-100 m-0" href="add-edit.html">
+					<img src="images/person-add-outline.svg" width="30" height="30" class="d-inline-block align-top"
+						alt="">
+					Edit Classlist
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+
+
+<div class="container-fluid min-vh-100">
+
+     <div class="modal fade " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="row justify-content-center mb-5 pb-5">
+    
+                <div class="col-6">
+                  <img  class="img-fluid " src="images/confirmed.gif" alt="" />
+                </div>
+                <div class="col-auto text-center">
+                  <h1 class="font-weight-bold">Attendance Succesfully Recorded</h1>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+	<div class="row">
+		<div class="col-12">
+
+			<div class="col-lg-12 mt-4 ">
+
+				<h1 class="font-weight-bold">Record Attendance - {{classNum}} </h1>
+			</div>
+
+			<form id="attendance-form" method="POST" action="/recordAttendance">
+									<label for="exampleFormControlSelect1"> <h4 class="text-secondary m-0 px-3">Take attendance for selected class. </h4></label>
+
+				<div class="form-group form-inline col-lg-6 col-md-8">
+					    <select class="form-control mr-3 my-2" name="exampleFormControlSelect1" id="day-select">
+                        <option  selected value="1">Class 1 - January 6, 2019</option>
+                                <option value="2">Class 2 - March 13, 2019</option>
+                                <option value="3">Class 3 - March 20, 2019</option>
+                                <option value="4">Class 4 - March 27, 2019</option>
+                                <option value="5">Class 5 - March 3, 2019</option>
+                                <option value="6">Class 6 - March 10, 2019</option>
+                                <option value="7">Class 7 - March 17, 2019</option>
+                                <option value="8">Class 8 - March 24, 2019</option>
+                                <option value="9">Class 9 - March 2, 2019</option>
+                                <option value="10">Class 10 - March 9, 2019</option>
+                                <option value="11">Class 11 - March 16, 2019</option>
+                                <option value="12">Class 12 - March 23, 2019</option>
+                    </select>
+										<button type="submit" class="btn btn-warning  px-5 " data-toggle="modal" data-target="#exampleModalCenter">Submit Attendance</button>
+
+				</div>
+				<div class="form-group">
+					<div class="btn-group-toggle d-flex flex-wrap" data-toggle="buttons">
+						<!--Templated Student Card-->
+						{{#each gbda404Data}}
+						<div class="col-lg-3 col-md-6 col-sm-8 py-3 ">
+
+							<label for="{{this.name}}"
+								class="card text-center card-bg rounded-xl py-1 btn btn-outline-warning text-dark shadow-sm">
+
+								<input type="checkbox" id="{{this.name}}" name="{{this.name}}" value="{{this.name}}">
+								<img src="images/peopleimg.svg" class=" rounded-circle img-fluid w-75 h-75 m-3 mx-auto student-photo" 
+									alt="..." />
+								<div class="card-body">
+									<h5 class="card-title">{{this.name}}</h5>
+									<p class="card-text">{{this.studentNumber}}</p>
+								</div>
+							</label>
+						</div>
+
+
+
+						{{/each}}
+					</div>
+
+			</form>
+
+		</div>
+	</div>
+
+
+
+	<!--Templated Student Card-->
+	{{!-- 		{{#each gbda404Data}}
+		<div class="col-lg-4 col-md-6 col-sm-8 py-3 ">
+
+				<div class="card card-bg text-center rounded-xl py-1" id="{{this.name}}"  onclick="markPresent(this.id)">
+					<img src="images/peopleimg.svg" class="card-img-top img-fluid w-50 p-2 mx-auto" alt="..." />
+					<div class="card-body">
+						<h5 class="card-title">{{this.name}}</h5>
+						<p class="card-text">{{this.attendanceRecord}}</p>
+					</div>
+				</div>
+			
+
+		</div>
+		{{/each}} --}}
+		
